@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+    <title>City Cykler</title>
+</head>
+
+<body>
+    <div class="col-md-8 offset-md-2">
+        <div class="row">
+            <div class="divRound">
+
+                <header class="nav-scroller col-md-12 p-0">
+                    <% include ../partials/header.ejs %>
+                </header>
+
+                <main>
+                    <div class="col-md-12">
+
+                        <section class="col-md-10 d-inline-block float-left">
+
+                            <h3 class="pt-2">Nyheder</h3>
+                            <hr class="d-inline-block w-75">
+
+
+                            <% nyheder.forEach(nyhed => { %>
+                                <div class="d-inline-block ml-5 mt-2 border mb-3">
+                                    <div class="col-md-7 p-0 float-left d-inline">
+                                        <h6>
+                                            <%= nyhed.cykel_navn%>
+                                        </h6>
+                                        <div>
+                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                                                tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim
+                                                veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip
+                                                ex ea commodo consequat.
+                                            </p>
+    
+                                            <p>
+                                                Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla
+                                                facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
+                                                luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                                            </p>
+                                        </div>
+
+                                        <p class="m-0 p-0 padding-t1">Pris:
+                                            <%= nyhed.cykel_pris %> Kr.
+                                        </p>
+
+                                        <p class="mt-3 float-left">
+                                            <%= nyhed.cykel_dato %>
+                                            <a clas="float-left" style="padding-left: 110px" href="/visEnCykel/<%= nyhed.cykel_id %>">MERE INFO</a>
+                                        </p>
+
+                                        <!-- <p class="float-left m-0 p-0 border">
+                                        </p> -->
+
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <img src="/img/Cykler/<%= nyhed.cykel_billede %>" alt="Cykel Billede" class="float-left">
+                                    </div>
+
+                                </div>
+                                <% }) %>
+
+                        </section>
+
+
+                        <h3 class="pl-3 pt-2 d-inline-block">Tilbud</h3>
+                        <hr>
+
+                        <% produkter.forEach(produkt => { %>
+                            <aside class="col-md-2 float-left border mb-1">
+                                <p class="m-0">
+                                    <%= produkt.tilbud_navn %>
+                                </p>
+                                <img src="/img/Cykler/<%= produkt.tilbud_billede %>" alt="Cykel Billede" class="w-50">
+                                <!-- <p class="m-0">Før: </p> -->
+                                <p class="mt-2">Nu kun
+                                    <%= produkt.tilbud_pris %> Kr.</p>
+                            </aside>
+                            <% }) %>
+
+
+                                &nbsp;
+                    </div>
+                </main>
+
+
+
+
+                <footer class="blog-footer clearfix">
+                    <% include ../partials/footer.ejs %>
+                </footer>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                    crossorigin="anonymous">
+                    </script>
+                <!-- <script src="js/product.js"></script> -->
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

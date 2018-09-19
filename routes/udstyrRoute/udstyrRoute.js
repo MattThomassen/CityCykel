@@ -10,10 +10,11 @@ module.exports = (app) => {
         try {
             const produkter = await tilbud.visTilbud();
             const udstyrKategori = await cykelUdstyr.visUdstyr();
-            console.log('udstyrkategori: ', udstyrKategori);
+            // console.log('udstyrkategori: ', udstyrKategori);
             res.render('pages/udstyr', {
                 produkter: produkter,
-                udstyrKategori: udstyrKategori
+                udstyrKategori: udstyrKategori,
+                side: 'udstyr'
             });
         } catch (err) {
             console.log(err);
